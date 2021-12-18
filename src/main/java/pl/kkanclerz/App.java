@@ -14,7 +14,7 @@ public class App {
     }
 
     @Bean
-    Greeter createGreeter() {
+    Greeter createGreater() {
         return new Greeter();
     }
 }

@@ -1,8 +1,8 @@
-package pl.jkanclerz.ui;
+package pl.kkanclerz.ui;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import pl.jkanclerz.greetings.Greeter;
+import pl.kkanclerz.greetings.Greeter;
 
 import java.util.Arrays;
 import java.util.List;

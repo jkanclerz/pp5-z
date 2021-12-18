@@ -1,9 +1,9 @@
-package pl.jkanclerz;
+package pl.kkanclerz;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import pl.jkanclerz.greetings.Greeter;
+import pl.kkanclerz.greetings.Greeter;
 
 @SpringBootApplication
 public class App {

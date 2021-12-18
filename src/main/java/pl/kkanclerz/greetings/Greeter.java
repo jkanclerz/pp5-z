@@ -1,4 +1,4 @@
-package pl.jkanclerz.greetings;
+package pl.kkanclerz.greetings;
 
 public class Greeter {
     public String hello(String name) {

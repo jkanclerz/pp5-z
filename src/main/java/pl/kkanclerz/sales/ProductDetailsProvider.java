@@ -1,5 +1,5 @@
 package pl.kkanclerz.sales;
 
-interface ProductDetailsProvider {
+public interface ProductDetailsProvider {
     Product getDetails(String productId);
 }

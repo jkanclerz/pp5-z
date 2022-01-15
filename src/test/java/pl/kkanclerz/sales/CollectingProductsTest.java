@@ -3,8 +3,6 @@ package pl.kkanclerz.sales;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import javax.swing.text.html.Option;
-
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Optional;
@@ -14,12 +12,12 @@ import static org.junit.jupiter.api.Assertions.*;
 public class CollectingProductsTest {
 
     private DummyProductDetailsProvider productDetailsProvider;
-    private CartStorage cartStorage;
+    private InMemoryCartStorage cartStorage;
 
     @BeforeEach
     void initializeSharedObjects() {
         productDetailsProvider = new DummyProductDetailsProvider();
-        cartStorage = new CartStorage();
+        cartStorage = new InMemoryCartStorage();
     }
 
     @Test

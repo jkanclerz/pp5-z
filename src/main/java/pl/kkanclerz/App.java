@@ -4,10 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import pl.kkanclerz.greetings.Greeter;
-import pl.kkanclerz.productcatalog.DatabaseProductStorage;
-import pl.kkanclerz.productcatalog.ProductCatalog;
-import pl.kkanclerz.productcatalog.InMemoryProductStorage;
-import pl.kkanclerz.productcatalog.ProductStorage;
+import pl.kkanclerz.productcatalog.*;
 
 @SpringBootApplication
 public class App {
@@ -28,15 +25,8 @@ public class App {
     }
 
     @Bean
-    ProductStorage provideProductStorate() {
-        return crateproductStoage();
+    ProductStorage createDbProductStorage(ProductRepository productRepository) {
+        return new DatabaseProductStorage(productRepository);
     }
 
-    DatabaseProductStorage createDbProductSotrage() {
-        return null;
-    }
-
-    InMemoryProductStorage crateproductStoage() {
-        return new InMemoryProductStorage();
-    }
 }

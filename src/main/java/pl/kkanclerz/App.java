@@ -33,7 +33,7 @@ public class App {
     }
 
     DatabaseProductStorage createDbProductSotrage() {
-        return new DatabaseProductStorage();
+        return null;
     }
 
     InMemoryProductStorage crateproductStoage() {

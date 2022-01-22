@@ -2,6 +2,10 @@ package pl.kkanclerz.sales;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import pl.kkanclerz.sales.cart.Cart;
+import pl.kkanclerz.sales.cart.CartItem;
+import pl.kkanclerz.sales.cart.InMemoryCartStorage;
+import pl.kkanclerz.sales.offerting.OfferMaker;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -89,7 +93,7 @@ public class CollectingProductsTest {
 
     private SalesFacade thereIsSalesModule() {
 
-        return new SalesFacade(cartStorage, productDetailsProvider);
+        return new SalesFacade(cartStorage, productDetailsProvider, new OfferMaker(productDetailsProvider));
     }
 
     private String thereIsProduct(String productId) {

@@ -5,13 +5,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import pl.kkanclerz.greetings.Greeter;
 import pl.kkanclerz.productcatalog.*;
-import pl.kkanclerz.sales.InMemoryCartStorage;
-import pl.kkanclerz.sales.Product;
-import pl.kkanclerz.sales.ProductDetailsProvider;
-import pl.kkanclerz.sales.SalesFacade;
+import pl.kkanclerz.productcatalog.Product;
+import pl.kkanclerz.sales.*;
+import pl.kkanclerz.sales.cart.InMemoryCartStorage;
+import pl.kkanclerz.sales.offerting.OfferMaker;
 
 import java.math.BigDecimal;
-import java.util.UUID;
 
 @SpringBootApplication
 public class App {
@@ -58,17 +57,21 @@ public class App {
 
     @Bean
     SalesFacade createSalesFacade(ProductCatalog productCatalog) {
+        ProductDetailsProvider productDetailsProvider = (ProductDetailsProvider) (productId) -> {
+            Product loadedProduct = productCatalog.loadProduct(productId);
+
+            return new pl.kkanclerz.sales.Product(
+                    loadedProduct.getProductId(),
+                    loadedProduct.getName(),
+                    loadedProduct.getPrice()
+            );
+        };
+
         return new SalesFacade(
                 new InMemoryCartStorage(),
-                (productId) -> {
-                    pl.kkanclerz.productcatalog.Product loadedProduct = productCatalog.loadProduct(productId);
-
-                    return new Product(
-                            loadedProduct.getProductId(),
-                            loadedProduct.getName(),
-                            loadedProduct.getPrice()
-                    );
-                });
+                productDetailsProvider,
+                new OfferMaker(productDetailsProvider)
+        );
     }
 
 }

@@ -1,4 +1,4 @@
-package pl.kkanclerz.sales;
+package pl.kkanclerz.sales.cart;
 
 import java.util.HashMap;
 import java.util.Optional;

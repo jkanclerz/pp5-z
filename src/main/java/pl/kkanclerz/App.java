@@ -9,6 +9,9 @@ import pl.kkanclerz.productcatalog.Product;
 import pl.kkanclerz.sales.*;
 import pl.kkanclerz.sales.cart.InMemoryCartStorage;
 import pl.kkanclerz.sales.offerting.OfferMaker;
+import pl.kkanclerz.sales.ordering.DummyPaymentGateway;
+import pl.kkanclerz.sales.ordering.JpaReservationStorage;
+import pl.kkanclerz.sales.ordering.ReservationRepository;
 
 import java.math.BigDecimal;
 
@@ -68,7 +71,7 @@ public class App {
     }
 
     @Bean
-    SalesFacade createSalesFacade(ProductCatalog productCatalog) {
+    SalesFacade createSalesFacade(ProductCatalog productCatalog, JpaReservationStorage jpaReservationStorage) {
         ProductDetailsProvider productDetailsProvider = (ProductDetailsProvider) (productId) -> {
             Product loadedProduct = productCatalog.loadProduct(productId);
 
@@ -84,8 +87,12 @@ public class App {
                 productDetailsProvider,
                 new OfferMaker(productDetailsProvider),
                 new DummyPaymentGateway(),
-                new InMemoryReservationStorage()
+                jpaReservationStorage
         );
     }
 
+    @Bean
+    JpaReservationStorage createReservationStorage(ReservationRepository reservationRepository) {
+        return new JpaReservationStorage(reservationRepository);
+    }
 }

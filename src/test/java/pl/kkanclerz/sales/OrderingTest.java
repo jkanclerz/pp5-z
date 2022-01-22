@@ -1,12 +1,11 @@
 package pl.kkanclerz.sales;
 
-import net.bytebuddy.agent.builder.AgentBuilder;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 import pl.kkanclerz.sales.cart.InMemoryCartStorage;
-import pl.kkanclerz.sales.offerting.Offer;
 import pl.kkanclerz.sales.offerting.OfferMaker;
+import pl.kkanclerz.sales.ordering.*;
 
 import java.math.BigDecimal;
 import java.util.Optional;

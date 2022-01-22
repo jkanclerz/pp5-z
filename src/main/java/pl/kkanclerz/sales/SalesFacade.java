@@ -1,10 +1,10 @@
 package pl.kkanclerz.sales;
 
-import pl.kkanclerz.productcatalog.DatabaseProductStorage;
 import pl.kkanclerz.sales.cart.Cart;
 import pl.kkanclerz.sales.cart.InMemoryCartStorage;
 import pl.kkanclerz.sales.offerting.Offer;
 import pl.kkanclerz.sales.offerting.OfferMaker;
+import pl.kkanclerz.sales.ordering.*;
 
 
 public class SalesFacade {
@@ -12,14 +12,14 @@ public class SalesFacade {
     private ProductDetailsProvider productDetailsProvider;
     private OfferMaker offerMaker;
     private PaymentGateway paymentGateway;
-    private InMemoryReservationStorage reservationStorage;
+    private ReservationStorage reservationStorage;
 
     public SalesFacade(
             InMemoryCartStorage cartStorage,
             ProductDetailsProvider productDetailsProvider,
             OfferMaker offerMaker,
             PaymentGateway paymentGateway,
-            InMemoryReservationStorage reservationStorage
+            ReservationStorage reservationStorage
     ) {
         this.cartStorage = cartStorage;
         this.productDetailsProvider = productDetailsProvider;

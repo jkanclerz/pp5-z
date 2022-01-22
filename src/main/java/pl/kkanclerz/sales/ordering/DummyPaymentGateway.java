@@ -1,4 +1,4 @@
-package pl.kkanclerz.sales;
+package pl.kkanclerz.sales.ordering;
 
 import java.math.BigDecimal;
 import java.util.UUID;

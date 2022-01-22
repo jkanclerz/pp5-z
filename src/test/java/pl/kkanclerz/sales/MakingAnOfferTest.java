@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import pl.kkanclerz.sales.cart.InMemoryCartStorage;
 import pl.kkanclerz.sales.offerting.Offer;
 import pl.kkanclerz.sales.offerting.OfferMaker;
+import pl.kkanclerz.sales.ordering.DummyPaymentGateway;
+import pl.kkanclerz.sales.ordering.InMemoryReservationStorage;
 
 import static org.junit.jupiter.api.Assertions.*;
 

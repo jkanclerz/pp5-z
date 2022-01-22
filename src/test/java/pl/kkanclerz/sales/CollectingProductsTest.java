@@ -6,6 +6,8 @@ import pl.kkanclerz.sales.cart.Cart;
 import pl.kkanclerz.sales.cart.CartItem;
 import pl.kkanclerz.sales.cart.InMemoryCartStorage;
 import pl.kkanclerz.sales.offerting.OfferMaker;
+import pl.kkanclerz.sales.ordering.DummyPaymentGateway;
+import pl.kkanclerz.sales.ordering.InMemoryReservationStorage;
 
 import java.math.BigDecimal;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package pl.kkanclerz.sales;
+package pl.kkanclerz.sales.ordering;
 
 public class CustomerData {
     private  String email;

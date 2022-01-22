@@ -1,8 +1,8 @@
 package pl.kkanclerz.sales;
 
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import pl.kkanclerz.sales.offerting.Offer;
+import pl.kkanclerz.sales.ordering.CustomerData;
 
 @RestController
 public class SalesController {
